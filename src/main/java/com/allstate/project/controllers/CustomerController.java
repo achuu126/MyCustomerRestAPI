@@ -52,6 +52,12 @@ public class CustomerController {
        
         service.deleteCustomer(cust);
     }
-
+    @ResponseBody
+    @RequestMapping(value = "/searchCustomers", method = RequestMethod.POST)
+    public Collection<Customer> searchCustomers(@RequestBody Customer cust) {
+        
+        Collection<Customer> customers =service.searchCustomers(cust.getFirstName(), cust.getLastName(), cust.getEmail());
+        return customers;
+    }
     
 }

@@ -45,4 +45,7 @@ public class CustomerService {
         dao.deleteByid(new ObjectId(id));
     }
 
+    public Collection<Customer> searchCustomers(String firstName, String lastName, String email) {
+        return dao.customFindByFirstNameAndLastNameAndEmail(firstName, lastName, email);
+    }
 }
